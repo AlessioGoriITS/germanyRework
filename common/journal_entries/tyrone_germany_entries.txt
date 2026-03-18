@@ -1,5 +1,5 @@
 je_bismarck_reform = {
-	icon = "gfx/interface/icons/invention_icons/central_planning.dds" #TODO SOME GOOD ICON
+	icon = "gfx/interface/icons/ideology_icons/ideology_leader/ideology_leader_junker_paternalistic.dds" #TODO SOME GOOD ICON
 
 	group = je_group_british_india
 

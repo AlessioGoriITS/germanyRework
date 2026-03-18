@@ -45,8 +45,8 @@ ideology_bismarck_paternalistic = {
 
 }
 
-ideology_bismarck_paternalistic_ig_landowners = { #This changes Paternalistic Base Ideology
-	icon = "gfx/interface/icons/ideology_icons/ideology_leader/ideology_leader_junker_paternalistic.dds" #TODO IG ICON
+ideology_bismarck_paternalistic_ig_landowners = { #This changes Junker Paternalistic Base Ideology
+	icon = "gfx/interface/icons/ideology_icons/junker_paternalistic.dds" #TODO IG ICON
 
 	lawgroup_governance_principles = { #no changes
 		law_monarchy = strongly_approve

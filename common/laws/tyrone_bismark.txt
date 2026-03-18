@@ -27,7 +27,11 @@ law_old_age_bismarck = { #Workers’ Security Fund
 		}
 	}
 
-	modifier = {	#Bismarck did not increase wages, reflected in the law
+	modifier = {	
+	}
+
+	institution = institution_social_security
+	institution_modifier = {  #Bismarck did not increase wages, reflected in the law
 		state_dependent_wage_mult = 0.2			
 		state_political_strength_from_welfare_mult = -0.15					   
 		state_food_security_add = 0.01

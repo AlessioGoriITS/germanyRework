@@ -1,0 +1,116 @@
+namespace = bismarckevents
+
+bismarckevents.1 = {
+	type = country_event
+	placement = ROOT
+
+	title = bismarckevents.1.t
+	desc = bismarckevents.1.d
+	flavor = bismarckevents.1.f
+
+	gui_window = event_window_1char_tabloid
+	left_icon = scope:bismarck_scope
+
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+
+	trigger = { #
+	}
+
+	cancellation_trigger = {
+		always = yes
+	}
+
+	immediate = {
+		create_character = {
+			template = PRU_otto_von_bismarck
+			on_created = {
+				set_global_variable = bismarck_variable
+				save_scope_as = bismarck_scope
+			}
+		}
+	}
+
+	option = {
+		name = bismarckevents.1.a
+		default_option = yes
+	}
+}
+
+
+bismarckevents.3 = {
+	type = country_event
+	placement = ROOT
+
+	title = bismarckevents.3.t
+	desc = bismarckevents.3.d
+	flavor = bismarckevents.3.f
+
+	event_image = {
+		video = "africa_soldiers_breaking_protest"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+
+	trigger = { #ON COMPLETE BISMARCK JE
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = bismarckevents.3.a
+		default_option = yes
+		ig:ig_landowners ?= {
+			remove_ideology = ideology_junker_paternalistic
+			remove_ideology = ideology_hierarchic
+			add_ideology = ideology_bismarck_paternalistic_ig_landowners
+			add_ideology = ideology_bismarck_hierarchic_ig_landowners
+		}
+
+		ig:ig_industrialists ?= {
+			remove_ideology = ideology_individualist
+			add_ideology = ideology_bismarck_individualist_ig_industrialist
+		}
+	}
+
+	option = {
+		name = bismarckevents.3.b
+		default_option = yes
+		ig:ig_landowners ?= {
+			remove_ideology = ideology_junker_paternalistic
+			remove_ideology = ideology_hierarchic
+			add_ideology = ideology_bismarck_paternalistic_ig_landowners
+			add_ideology = ideology_bismarck_hierarchic_ig_landowners
+		}
+
+		ig:ig_industrialists ?= {
+			remove_ideology = ideology_individualist
+			add_ideology = ideology_bismarck_individualist_ig_industrialist
+		}
+	}
+
+	option = {
+		name = bismarckevents.3.c
+		default_option = yes
+		ig:ig_landowners ?= {
+			remove_ideology = ideology_junker_paternalistic
+			remove_ideology = ideology_hierarchic
+			add_ideology = ideology_bismarck_paternalistic_ig_landowners
+			add_ideology = ideology_bismarck_hierarchic_ig_landowners
+		}
+
+		ig:ig_industrialists ?= {
+			remove_ideology = ideology_individualist
+			add_ideology = ideology_bismarck_individualist_ig_industrialist
+		}
+	}
+}
