@@ -1,0 +1,2 @@
+Bismark Event >>> german_unification.3
+Bismark Character >>> char_template/country_pru.txt

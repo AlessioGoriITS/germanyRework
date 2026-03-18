@@ -1,0 +1,156 @@
+je_bismarck_reform = {
+	icon = "gfx/interface/icons/invention_icons/central_planning.dds" #TODO SOME GOOD ICON
+
+	group = je_group_british_india
+
+	is_shown_when_inactive = {
+		THIS ?= c:GER
+		hidden_trigger = {
+			was_formed_from = PRU
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = bismarck_character_trigger
+			any_scope_character = {
+				OR = { # Bismarck
+					has_role = agitator
+					has_role = politician
+				}
+				has_ideology = ideology:ideology_bismarck_paternalistic
+			}
+		}
+		OR = {
+			has_technology_researched = socialism
+			any_political_movement = {
+				OR = {
+					is_political_movement_type = movement_socialist
+					is_political_movement_type = movement_anarchist
+					is_political_movement_type = movement_communist
+				}
+				political_movement_radicalism >= 0.25
+			}
+		}
+	}
+
+	immediate = {
+		root ?= {
+			save_scope_as = GER_scope
+		}
+		ig:ig_landowners ?= {
+			save_scope_as = landowners_ig
+		}
+		set_variable = {
+			name  = socialist_tensions_bismarck_var
+            value = 0
+		}
+		trigger_event = { id = bismarck_events.2 popup = yes } #TODO
+		if = {
+			limit = {
+				any_political_movement = {
+					OR = {
+						is_political_movement_type = movement_socialist
+						is_political_movement_type = movement_anarchist
+						is_political_movement_type = movement_communist
+						}
+				}
+			}
+			create_political_movement = { type = movement_socialist }
+		}
+	}
+
+	complete = {
+		root.average_sol >= 12
+		has_law_or_variant = law_type:law_public_health_insurance #Variant Exists
+		has_law_or_variant = law_type:law_old_age_pension #Variant Exists
+		has_law_or_variant = law_type:law_protectionism
+		OR = {
+			has_law_or_variant = law_type:law_compulsory_primary_school
+			has_law_or_variant = law_type:law_restricted_child_labor
+		}
+		OR = {
+			has_law_or_variant = law_type:law_worker_protections
+			has_law_or_variant = law_type:law_regulatory_bodies #Variant Exists
+		}
+
+	}
+
+	fail = {
+		OR = { #Bismark Exiled/Killed by socialist
+			custom_tooltip = {
+				text = bismarck_character_trigger
+				NOT = { 
+					any_scope_character = {
+						OR = { # Bismark
+							has_role = agitator
+							has_role = politician
+						}
+						has_ideology = ideology:ideology_bismarck_paternalistic
+					} 
+				}
+			}
+		}
+		custom_tooltip = { #Major Skill Issue
+			text = bis_soc_tens_fail_tt
+			var:socialist_tensions_bismarck_var >= 100
+		}	
+	}
+
+	invalid = {
+	}
+	on_complete = {
+		trigger_event = { id = bismarck_events.3 popup = yes } #TODO
+		set_variable = bismarck_reforms_done
+	}
+
+    event_outcome_completed_desc = {
+        first_valid = {
+            triggered_desc = {
+                desc = event_bismarck_preview.3_tt
+            }
+        }
+    }
+
+	on_fail = {
+		trigger_event = { id = bismarck_events.4 popup = yes } #TODO
+		set_variable = bismarck_reforms_failed
+	}
+
+    event_outcome_failed_desc = {
+        first_valid = {
+            triggered_desc = {
+                desc = event_bismarck_preview.4_tt
+            }
+        }
+    }
+
+	on_timeout = {
+		trigger_event = { id = bismarck_events.5 popup = yes } #TODO
+		set_variable = bismarck_reforms_failed
+	}
+
+    event_outcome_timeout_desc = {
+        first_valid = {
+            triggered_desc = {
+                desc = event_bismarck_preview.5_tt
+            }
+        }
+    }
+
+	on_monthly_pulse = {
+		effect = {
+
+		}
+		random_events = {
+			100 = 0
+		}
+	}
+
+	timeout = 5475 #15 yrs
+
+	weight = 100
+
+	should_be_pinned_by_default = yes
+
+}
