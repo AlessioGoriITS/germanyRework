@@ -53,6 +53,19 @@ je_bismarck_reform = {
 			save_scope_as = landowners_ig
 		}
 		trigger_event = { id = bismarck_events.2 popup = yes } #TODO
+		effect = {
+			random_scope_character = {
+				limit = {
+					has_variable = bismarck_variable_char
+				}
+				save_scope_as = bismarck_gui_character_scope
+			}
+			clear_variable_list = germany_bismarck_gui_characters
+			add_to_variable_list = {
+				name = germany_bismarck_gui_characters
+				target = scope:bismarck_gui_character_scope
+			}
+		}
 		if = {
 			limit = {
 				any_political_movement = {
