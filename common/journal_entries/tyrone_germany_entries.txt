@@ -1,8 +1,9 @@
 je_bismarck_reform = {
 	icon = "gfx/interface/icons/ideology_icons/ideology_leader/ideology_leader_junker_paternalistic.dds" #TODO SOME GOOD ICON
 
-	group = je_group_british_india
+	group = je_group_germany_tyrone
 
+	scripted_progress_bar = reform_balance_bismarck_bar
 	scripted_progress_bar = socialist_tension_bismarck_bar
 
 	is_shown_when_inactive = {
@@ -23,7 +24,7 @@ je_bismarck_reform = {
 				has_ideology = ideology:ideology_bismarck_paternalistic
 			}
 		}
-		OR = {
+		OR = { 
 			has_technology_researched = socialism
 			any_political_movement = {
 				OR = {
@@ -31,7 +32,11 @@ je_bismarck_reform = {
 					is_political_movement_type = movement_anarchist
 					is_political_movement_type = movement_communist
 				}
-				political_movement_radicalism >= 0.25
+				OR = { 
+					political_movement_radicalism >= 0.25
+					political_movement_support >= 0.05
+				}
+				
 			}
 		}
 	}
@@ -133,8 +138,13 @@ je_bismarck_reform = {
     }
 
 	on_fail = {
-		trigger_event = { id = bismarck_events.3 popup = yes } #TODO
+		#Maybe add general strikes?
+		trigger_event = { id = bismarck_events.4 popup = yes } #rise of the internationalist
 		set_variable = bismarck_reforms_failed
+		add_radicals = {
+			pop_type = laborers
+			value = 0.25
+		}
 	}
 
     event_outcome_failed_desc = {
@@ -146,7 +156,8 @@ je_bismarck_reform = {
     }
 
 	on_timeout = {
-		trigger_event = { id = bismarck_events.4 popup = yes } #TODO
+		#Maybe add general strikes?
+		trigger_event = { id = bismarck_events.5 popup = yes } #softer version of the failing event
 		set_variable = bismarck_reforms_failed
 	}
 
@@ -159,11 +170,13 @@ je_bismarck_reform = {
     }
 
 	on_monthly_pulse = {
-		effect = {
-
-		}
-		random_events = {
+		random_events = { #above 50% tension
 			100 = 0
+			10 = bismarckevents.7 #Rhine Strikes
+			10 = bismarckevents.8 #Silesian Strikes
+			10 = bismarckevents.9 #Commies ask for right to associate
+			10 = bismarckevents.10 #Socialists oppose Bismarck reforms 
+			10 = bismarckevents.11 #Bismarck gets slimed (requires event .10)
 		}
 	}
 

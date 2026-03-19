@@ -25,14 +25,14 @@ germany_bismarck_reform_2 = { #modifier 2, suppress the socialists. Paternalisti
 	country_authority_mult = 0.10
 }
 
-germany_bismarck_reform_3 = { #modifier 3, continue the reforms. Socialist win, comes with a communist intell/trade union/rural folk agitator
+germany_bismarck_reform_3 = { #modifier 3, continue the reforms. Socialist win, comes with a communist intell agitator
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
 	country_legitimacy_base_add = 10
 	country_law_enactment_time_mult = -0.1
 	country_law_enactment_max_setbacks_add = 1
 }
 
-germany_bismarck_reform_4 = { #modifier 1, higher wages. Socialist win, comes with loyalists and a communist intell/trade union/rural folk IG leader (change ideology)
+germany_bismarck_reform_4 = { #modifier 1, higher wages. Socialist win, comes with a communist intell IG leader
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
 	state_pop_support_movement_socialist_mult = 0.5
 	state_pop_support_movement_communist_mult = 0.5
@@ -56,4 +56,43 @@ ig_bonus_bismarck = { #lil cosmetic IG bonus
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
 	interest_group_approval_add = 5
 	interest_group_pol_str_mult = 0.20
+}
+
+ig_bonus_bismarck = { #lil cosmetic IG debuff
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	interest_group_approval_add = -10
+	interest_group_pol_str_mult = 0.25
+}
+
+strikes_bismarck = { #strikes
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	building_group_bg_extraction_throughput_add = -0.6
+	building_group_bg_manufacturing_throughput_add = -0.6
+}
+
+silesian_strikes_bismarck = { #strikes
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	building_group_bg_light_industry_throughput_add = -0.6
+}
+
+silesian_strikes_wages_bismarck = { #strikes
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	building_minimum_wage_mult = 0.2
+}
+
+germany_bismarck_right_associate = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	country_law_enactment_time_mult = -0.40
+	country_law_enactment_success_add = 0.1
+	country_cannot_cancel_law_enactment_bool = yes
+}
+
+landowners_no_association_bismarck = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	interest_group_approval_add = -20
+}
+
+commies_mad_about_bismarck = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	character_popularity_add = -100
 }

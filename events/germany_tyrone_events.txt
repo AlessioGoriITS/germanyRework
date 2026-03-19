@@ -194,10 +194,10 @@ bismarckevents.3 = { #complete entry on socialist side
 	}
 
 	option = {
-		name = bismarckevents.2.a
+		name = bismarckevents.3.a
 		default_option = yes
 		add_modifier = { 
-			name = germany_bismarck_reform_1
+			name = germany_bismarck_reform_3
 		}
 		scope:junkers = {
 			add_modifier = { 
@@ -206,24 +206,643 @@ bismarckevents.3 = { #complete entry on socialist side
 			}
 			add_ideology = ideology_bismarck_paternalistic_ig_landowners
 			add_ideology = ideology_bismarck_hierarchic_ig_landowners
+			set_ig_trait = ig_trait:ig_trait_junkerdom_bismarck
+			
+		}
+		scope:intelligentsia = {
+			add_modifier = { 
+				name = ig_bonus_bismarck
+				months = 60
+
+			}
+			add_ideology = ideology_bismarck_socialist
+			set_ig_trait = ig_trait:ig_trait_intelligentsia_veryhappy_bismarck_win
+			set_ig_trait = ig_trait:ig_trait_intelligentsia_unhappy_bismarck
+		}
+
+		custom_tooltip = {
+			text = bismarck_agitator1_tt
+			create_character = {
+				interest_group = ig_intelligentsia
+				ig_leader = no
+				is_agitator = yes
+				ideology = ideology_communist
+			}
+		}
+		
+	}
+
+	option = {
+		name = bismarckevents.3.b
+		add_modifier = { 
+			name = germany_bismarck_reform_4
+		}
+		scope:junkers = {
+			add_modifier = { 
+				name = ig_bonus_bismarck
+				months = 60
+			}
+			add_ideology = ideology_bismarck_paternalistic_ig_landowners
+			add_ideology = ideology_bismarck_hierarchic_ig_landowners
+			set_ig_trait = ig_trait:ig_trait_junkerdom_bismarck
 		}
 		scope:intelligentsia = {
 			add_modifier = { 
 				name = ig_bonus_bismarck
 				months = 60
 			}
+			add_ideology = ideology_bismarck_socialist
 			set_ig_trait = ig_trait:ig_trait_intelligentsia_veryhappy_bismarck_win
 			set_ig_trait = ig_trait:ig_trait_intelligentsia_unhappy_bismarck
+		}
+
+		custom_tooltip = {
+			text = bismarck_agitator2_tt
+			create_character = {
+				interest_group = ig_intelligentsia
+				ig_leader = yes
+				ideology = ideology_communist
+				on_created = {
+					add_modifier = popular_socialist_leader 			
+				}
+			}
+		}
+	}
+}
+
+
+bismarckevents.4 = { #fail entry
+	type = country_event
+	placement = ROOT
+
+	title = bismarckevents.4.t
+	desc = bismarckevents.4.d
+	flavor = bismarckevents.4.f
+
+	event_image = {
+		video = "africa_soldiers_breaking_protest"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+
+	trigger = { #ON FAIL BISMARCK JE
+	}
+
+	immediate = {
+		if = { #very unlikely but still a possibility
+			limit = {
+				NOT = {
+					any_political_movement = {
+						is_political_movement_type = movement_communist
+					}
+				}
+			}
+			create_political_movement = { type = movement_communist }
+		}
+		ig:ig_intelligentsia ?= {
+			save_scope_as = intelligentsia
+			remove_ideology = ideology_republican
+			remove_ideology = ideology_constitutionalist
+			remove_ideology = ideology_technocratic
+		}
+		ig:ig_trade_unions ?= {
+			save_scope_as = commies
 		}
 	}
 
 	option = {
-		name = bismarckevents.2.b
+		name = bismarckevents.4.a
 		default_option = yes
 		add_modifier = { 
-			name = germany_bismarck_reform_2
+			name = germany_rise_of_internationalist
 		}
-		add_ideology = ideology_bismarck_individualist_ig_industrialist
+		scope:commies = {
+			add_modifier = { 
+				name = ig_debuff_bismarck
+				months = 60
+			}
+		}
+		scope:intelligentsia = {
+			add_modifier = { 
+				name = ig_debuff_bismarck
+				months = 60
+			}
+			add_ideology = ideology_bismarck_socialist
+			set_ig_trait = ig_trait:ig_trait_intelligentsia_veryhappy_bismarck_fail
+			set_ig_trait = ig_trait:ig_trait_intelligentsia_unhappy_bismarck
+		}
+
+		custom_tooltip = {
+			text = bismarck_agitator3_tt
+			create_character = {
+				interest_group = ig_trade_unions
+				ig_leader = yes
+				ideology = ideology_communist
+				on_created = {
+					add_modifier = popular_socialist_leader 			
+				}
+			}
+		}
+		custom_tooltip = {
+			text = bismarck_agitator1_tt
+			create_character = {
+				interest_group = ig_intelligentsia
+				ig_leader = no
+				is_agitator = yes
+				ideology = ideology_communist
+			}
+		}
+		random_political_movement = {
+			limit = {
+				is_political_movement_type = movement_communist
+			} 
+			add_modifier = {
+				name = germany_rise_of_internationalist_movement
+				months = 240
+				is_decaying = yes
+			}
+		}
+	}
+}
+
+
+bismarckevents.5 = { #timeout entry, softer rise of the commies 
+	type = country_event
+	placement = ROOT
+
+	title = bismarckevents.5.t
+	desc = bismarckevents.5.d
+	flavor = bismarckevents.5.f
+
+	event_image = {
+		video = "africa_soldiers_breaking_protest"
 	}
 
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+
+	trigger = { #ON FAIL BISMARCK JE
+	}
+
+	immediate = {
+		if = { #very unlikely but still a possibility
+			limit = {
+				NOT = {
+					any_political_movement = {
+						is_political_movement_type = movement_communist
+					}
+				}
+			}
+			create_political_movement = { type = movement_communist }
+		}
+		ig:ig_intelligentsia ?= {
+			save_scope_as = intelligentsia
+			remove_ideology = ideology_republican
+			remove_ideology = ideology_constitutionalist
+			remove_ideology = ideology_technocratic
+		}
+	}
+
+	option = {
+		name = bismarckevents.5.a
+		default_option = yes
+		add_modifier = { 
+			name = germany_rise_of_internationalist
+		}
+		scope:intelligentsia = {
+			add_modifier = { 
+				name = ig_debuff_bismarck
+				months = 60
+			}
+			add_ideology = ideology_bismarck_socialist
+			set_ig_trait = ig_trait:ig_trait_intelligentsia_veryhappy_bismarck_fail
+			set_ig_trait = ig_trait:ig_trait_intelligentsia_unhappy_bismarck
+		}
+
+		custom_tooltip = {
+			text = bismarck_agitator3_tt
+			create_character = {
+				interest_group = ig_trade_unions
+				ig_leader = yes
+				ideology = ideology_communist
+				on_created = {
+					add_modifier = popular_socialist_leader 			
+				}
+			}
+		}
+		custom_tooltip = {
+			text = bismarck_agitator4_tt
+			create_character = {
+				interest_group = ig_intelligentsia
+				ig_leader = yes
+				ideology = ideology_communist
+			}
+		}
+		random_political_movement = {
+			limit = {
+				is_political_movement_type = movement_communist
+			} 
+			add_modifier = {
+				name = germany_rise_of_internationalist_movement
+				months = 240
+				is_decaying = yes
+			}
+		}
+	}
 }
+
+# Monthly/Tension events here
+bismarckevents.6 = { #on immediate of the entry, informative
+	type = country_event
+	placement = ROOT
+
+	title = bismarckevents.6.t
+	desc = bismarckevents.6.d
+	flavor = bismarckevents.6.f
+
+	event_image = {
+		video = "africa_soldiers_breaking_protest"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+
+	trigger = { 
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = bismarckevents.6.a
+		default_option = yes
+	}
+}
+
+bismarckevents.7 = { #Rhineland general strikes strikes
+	type = country_event
+	placement = ROOT
+
+	title = bismarckevents.7.t
+	desc = bismarckevents.7.d
+	flavor = bismarckevents.7.f
+
+	cooldown = { days = stupidly_long_modifier_time }
+
+	event_image = {
+		video = "africa_soldiers_breaking_protest"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+
+	trigger = { 
+		je:je_bismarck_reform ?= {
+			"scripted_bar_progress(socialist_tension_bismarck_bar)" >= 50
+		}
+		any_state = {
+			OR = {
+				state_region = s:STATE_RHINELAND
+				state_region = s:STATE_NORTH_RHINE
+			}
+		}
+	}
+
+	immediate = {
+	}
+
+	option = { #let them strike
+		name = bismarckevents.7.a
+		default_option = yes
+		every_state = {
+			limit = {
+				owner = root
+				OR = {
+					state_region = s:STATE_RHINELAND
+					state_region = s:STATE_NORTH_RHINE
+				}
+			}
+			add_modifier = {
+				name = strikes_bismarck
+				months = 24
+				is_decaying = yes
+			}
+		}
+	}
+	option = { #break the strikes
+		name = bismarckevents.7.b
+		trigger = {
+			has_law_or_variant = law_type:law_national_guard
+		}
+		every_state = {
+			limit = {
+				owner = root
+				OR = {
+					state_region = s:STATE_RHINELAND
+					state_region = s:STATE_NORTH_RHINE
+				}
+			}
+			add_modifier = {
+				name = strikes_bismarck
+				months = 24
+				multiplier = 0.5
+				is_decaying = yes
+			}
+			add_radicals_in_state = {
+				pop_type = laborers
+				value = 0.15
+			}
+		}
+	}
+}
+
+bismarckevents.8 = { #Silesian Weavers’ Uprising (caused by free trade irl, added for Larp )
+	type = country_event
+	placement = ROOT
+
+	title = bismarckevents.8.t
+	desc = bismarckevents.8.d
+	flavor = bismarckevents.8.f
+
+	cooldown = { days = stupidly_long_modifier_time }
+
+	event_image = {
+		video = "africa_soldiers_breaking_protest"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+
+	trigger = { 
+		je:je_bismarck_reform ?= {
+			"scripted_bar_progress(socialist_tension_bismarck_bar)" >= 50
+		}
+		NOT = { has_law_or_variant = law_type:law_protectionism }
+		any_state = {
+			OR = {
+				state_region = s:STATE_LOWER_SILESIA
+				state_region = s:STATE_UPPER_SILESIA
+			}
+		}
+	}
+
+	immediate = {
+	}
+
+	option = { #let them strike
+		name = bismarckevents.8.a
+		default_option = yes
+		every_state = {
+			limit = {
+				owner = root
+				OR = {
+					state_region = s:STATE_LOWER_SILESIA
+					state_region = s:STATE_UPPER_SILESIA
+				}
+			}
+			add_modifier = {
+				name = silesian_strikes_bismarck
+				months = 24
+				is_decaying = yes
+			}
+		}
+	}
+	option = { #break the strikes
+		name = bismarckevents.8.b
+		trigger = {
+			has_law_or_variant = law_type:law_national_guard
+		}
+		every_state = {
+			limit = {
+				owner = root
+				OR = {
+					state_region = s:STATE_LOWER_SILESIA
+					state_region = s:STATE_UPPER_SILESIA
+				}
+			}
+			add_modifier = {
+				name = silesian_strikes_bismarck
+				months = 24
+				multiplier = 0.5
+				is_decaying = yes
+			}
+			add_radicals_in_state = {
+				pop_type = laborers
+				value = 0.15
+			}
+		}
+	}
+	option = { #offer higher wages 
+		name = bismarckevents.8.c
+		trigger = {
+			has_law_or_variant = law_type:law_old_age_pension
+		}
+		every_state = {
+			limit = {
+				owner = root
+				OR = {
+					state_region = s:STATE_LOWER_SILESIA
+					state_region = s:STATE_UPPER_SILESIA
+				}
+			}
+			add_modifier = {
+				name = silesian_strikes_wages_bismarck
+				months = 24
+			}
+		}
+	}
+}
+
+bismarckevents.9 = { #Call for Right to Associate
+	type = country_event
+	placement = ROOT
+
+	title = bismarckevents.9.t
+	desc = bismarckevents.9.d
+	flavor = bismarckevents.9.f
+
+	cooldown = { days = stupidly_long_modifier_time }
+
+	event_image = {
+		video = "africa_soldiers_breaking_protest"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+
+	trigger = { 
+		je:je_bismarck_reform ?= {
+			"scripted_bar_progress(socialist_tension_bismarck_bar)" >= 50
+		}
+		NOT = { has_law = law_type:law_right_to_associate }
+	}
+
+	immediate = {
+	}
+
+	option = { #start enacting the law
+		name = bismarckevents.9.a
+		default_option = yes
+		cancel_enactment = yes
+		start_enactment = law_type:law_right_to_associate
+		add_enactment_modifier = {
+			name = germany_bismarck_right_associate
+		}
+		ig:ig_landowners ?= {
+			add_modifier = {
+				name = landowners_no_association_bismarck
+				months = 24
+				is_decaying = yes
+			}
+		}
+	}
+
+	option = { #let them be mad
+		name = bismarckevents.9.b
+		capital = {
+			add_radicals_in_state = {
+				value = large_radicals
+			}
+		}
+	}
+}
+
+bismarckevents.10 = { #Commies mad about Bismarck reform
+	type = country_event
+	placement = ROOT
+
+	title = bismarckevents.10.t
+	desc = bismarckevents.10.d
+	flavor = bismarckevents.10.f
+
+	cooldown = { days = stupidly_long_modifier_time }
+
+	event_image = {
+		video = "africa_soldiers_breaking_protest"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+
+	trigger = { 
+		je:je_bismarck_reform ?= {
+			"scripted_bar_progress(socialist_tension_bismarck_bar)" >= 80
+		}
+		OR = {
+			has_law = law_type:law_old_age_bismarck
+			has_law = law_type:law_regulatory_bodies_bismarck
+			has_law = law_type:law_public_health_insurance_bismarck
+		}
+	}
+
+	immediate = {
+		random_character = {
+			limit = {
+				has_variable = bismarck_variable_char
+			}
+			save_scope_as = bismark_scope
+		}
+	}
+
+	option = { #Bismarck resigns (fail the entry)
+		name = bismarckevents.10.a
+		default_option = yes
+		scope:bismark_scope = {
+			exile_character = yes
+		}
+	}
+
+	option = { #let them be mad, assassination can happen later
+		name = bismarckevents.10.b
+		scope:bismark_scope = {
+			add_modifier = {
+				name = commies_mad_about_bismarck
+				months = 60
+			}
+		}
+		capital = {
+			add_radicals_in_state = {
+				value = large_radicals
+			}
+		}
+	}
+}
+
+
+bismarckevents.11 = { #Bismarck assassination
+	type = country_event
+	placement = ROOT
+
+	title = bismarckevents.11.t
+	desc = bismarckevents.11.d
+	flavor = bismarckevents.11.f
+
+	cooldown = { days = stupidly_long_modifier_time }
+
+	event_image = {
+		video = "africa_soldiers_breaking_protest"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+
+	trigger = { 
+		je:je_bismarck_reform ?= {
+			"scripted_bar_progress(socialist_tension_bismarck_bar)" >= 90
+		}
+		any_scope_character = {
+				has_variable = bismarck_variable_char
+				has_modifier = commies_mad_about_bismarck
+			}
+	}
+
+	immediate = {
+		random_character = {
+			limit = {
+				has_variable = bismarck_variable_char
+			}
+			save_scope_as = bismark_scope
+		}
+	}
+
+	option = { #Bismarck dies 
+		name = bismarckevents.11.a
+		default_option = yes
+		scope:bismark_scope = {
+			kill_character = yes
+		}
+		add_modifier = {
+			name = modifier_assassination_aftermath
+			months = 36
+			multiplier = 2
+			is_decaying = yes
+		}
+	}
+}
+
+
