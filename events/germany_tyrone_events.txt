@@ -9,8 +9,100 @@ bismarckevents.1 = {
 	flavor = bismarckevents.1.f
 
 	gui_window = event_window_1char_tabloid
+
 	left_icon = scope:bismarck_scope
 
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/misc/1Character_Banner"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	cooldown = { days = never_fire_again_modifier_time }
+
+	duration = 3
+
+	trigger = {
+		# triggered by character spawn
+	}
+
+	immediate = {
+		create_character = {
+			template = PRU_otto_von_bismarck
+			on_created = {
+				set_variable = bismarck_variable_char
+				set_global_variable = bismarck_variable
+				save_scope_as = bismarck_scope
+			}
+		}
+		ig:ig_landowners ?= {
+			save_scope_as = junkers
+		}
+	}
+
+	option = {
+		name = bismarckevents.1.a
+		default_option = yes
+		show_as_tooltip = {
+			create_character = {
+				template = PRU_otto_von_bismarck
+			}
+		}
+		scope:bismarck_scope = {
+			add_modifier = {
+				name = bismarck_popular
+			}
+			if = {
+				limit = {
+					has_variable = memento_mori_immunity
+				}
+				remove_variable = memento_mori_immunity
+			}
+			set_variable = { name = memento_mori_immunity years = 30 }
+		}
+		add_modifier = {
+			name = realpolitik
+			days = long_modifier_time
+		}
+
+		ai_chance = {
+			base = 95
+		}
+	}
+	option = {
+		name = bismarckevents.1.b
+		show_as_tooltip = {
+			create_character = {
+				template = PRU_otto_von_bismarck
+			}
+		}
+		scope:bismarck_scope = {
+			add_modifier = {
+				name = bismarck_unpopular
+			}
+		}
+		add_modifier = {
+			name = germany_aggressive_expansion
+			days = long_modifier_time
+		}
+
+		ai_chance = {
+			base = 5
+		}
+	}
+}
+
+
+bismarckevents.2 = { #complete entry on paternalistic side
+	type = country_event
+	placement = ROOT
+
+	title = bismarckevents.2.t
+	desc = bismarckevents.2.d
+	flavor = bismarckevents.2.f
+
+	event_image = {
+		video = "africa_soldiers_breaking_protest"
+	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 
@@ -18,31 +110,55 @@ bismarckevents.1 = {
 
 	duration = 3
 
-	trigger = { #
-	}
-
-	cancellation_trigger = {
-		always = yes
+	trigger = { #ON COMPLETE BISMARCK JE
 	}
 
 	immediate = {
-		create_character = {
-			template = PRU_otto_von_bismarck
-			on_created = {
-				set_global_variable = bismarck_variable
-				save_scope_as = bismarck_scope
-			}
+		ig:ig_landowners ?= {
+			save_scope_as = junkers
+			remove_ideology = ideology_junker_paternalistic
+			remove_ideology = ideology_hierarchic
+		}
+		ig:ig_industrialists ?= {
+			save_scope_as = industrialists
+			remove_ideology = ideology_individualist
 		}
 	}
 
 	option = {
-		name = bismarckevents.1.a
+		name = bismarckevents.2.a
 		default_option = yes
+		add_modifier = { 
+			name = germany_bismarck_reform_1
+		}
+		scope:junkers = {
+			add_modifier = { 
+				name = ig_bonus_bismarck
+				months = 60
+			}
+			add_ideology = ideology_bismarck_paternalistic_ig_landowners
+			add_ideology = ideology_bismarck_hierarchic_ig_landowners
+		}
+		scope:industrialists = {
+			add_modifier = { 
+				name = ig_bonus_bismarck
+				months = 60
+			}
+			add_ideology = ideology_bismarck_individualist_ig_industrialist
+		}
+	}
+
+	option = {
+		name = bismarckevents.2.b
+		default_option = yes
+		add_modifier = { 
+			name = germany_bismarck_reform_2
+		}
+		add_ideology = ideology_bismarck_individualist_ig_industrialist
 	}
 }
 
-
-bismarckevents.3 = {
+bismarckevents.3 = { #complete entry on socialist side
 	type = country_event
 	placement = ROOT
 
@@ -64,53 +180,50 @@ bismarckevents.3 = {
 	}
 
 	immediate = {
-	}
-
-	option = {
-		name = bismarckevents.3.a
-		default_option = yes
 		ig:ig_landowners ?= {
+			save_scope_as = junkers
 			remove_ideology = ideology_junker_paternalistic
 			remove_ideology = ideology_hierarchic
-			add_ideology = ideology_bismarck_paternalistic_ig_landowners
-			add_ideology = ideology_bismarck_hierarchic_ig_landowners
 		}
-
-		ig:ig_industrialists ?= {
-			remove_ideology = ideology_individualist
-			add_ideology = ideology_bismarck_individualist_ig_industrialist
+		ig:ig_intelligentsia ?= {
+			save_scope_as = intelligentsia
+			remove_ideology = ideology_republican
+			remove_ideology = ideology_constitutionalist
+			remove_ideology = ideology_technocratic
 		}
 	}
 
 	option = {
-		name = bismarckevents.3.b
+		name = bismarckevents.2.a
 		default_option = yes
-		ig:ig_landowners ?= {
-			remove_ideology = ideology_junker_paternalistic
-			remove_ideology = ideology_hierarchic
+		add_modifier = { 
+			name = germany_bismarck_reform_1
+		}
+		scope:junkers = {
+			add_modifier = { 
+				name = ig_bonus_bismarck
+				months = 60
+			}
 			add_ideology = ideology_bismarck_paternalistic_ig_landowners
 			add_ideology = ideology_bismarck_hierarchic_ig_landowners
 		}
-
-		ig:ig_industrialists ?= {
-			remove_ideology = ideology_individualist
-			add_ideology = ideology_bismarck_individualist_ig_industrialist
+		scope:intelligentsia = {
+			add_modifier = { 
+				name = ig_bonus_bismarck
+				months = 60
+			}
+			set_ig_trait = ig_trait:ig_trait_intelligentsia_veryhappy_bismarck_win
+			set_ig_trait = ig_trait:ig_trait_intelligentsia_unhappy_bismarck
 		}
 	}
 
 	option = {
-		name = bismarckevents.3.c
+		name = bismarckevents.2.b
 		default_option = yes
-		ig:ig_landowners ?= {
-			remove_ideology = ideology_junker_paternalistic
-			remove_ideology = ideology_hierarchic
-			add_ideology = ideology_bismarck_paternalistic_ig_landowners
-			add_ideology = ideology_bismarck_hierarchic_ig_landowners
+		add_modifier = { 
+			name = germany_bismarck_reform_2
 		}
-
-		ig:ig_industrialists ?= {
-			remove_ideology = ideology_individualist
-			add_ideology = ideology_bismarck_individualist_ig_industrialist
-		}
+		add_ideology = ideology_bismarck_individualist_ig_industrialist
 	}
+
 }

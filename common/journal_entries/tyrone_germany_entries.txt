@@ -3,6 +3,8 @@ je_bismarck_reform = {
 
 	group = je_group_british_india
 
+	scripted_progress_bar = socialist_tension_bismarck_bar
+
 	is_shown_when_inactive = {
 		THIS ?= c:GER
 		hidden_trigger = {
@@ -35,15 +37,15 @@ je_bismarck_reform = {
 	}
 
 	immediate = {
+		set_variable = {
+				name = bismarck_concessions_var
+				value = 0
+			}
 		root ?= {
 			save_scope_as = GER_scope
 		}
 		ig:ig_landowners ?= {
 			save_scope_as = landowners_ig
-		}
-		set_variable = {
-			name  = socialist_tensions_bismarck_var
-            value = 0
 		}
 		trigger_event = { id = bismarck_events.2 popup = yes } #TODO
 		if = {
@@ -77,7 +79,7 @@ je_bismarck_reform = {
 	}
 
 	fail = {
-		OR = { #Bismark Exiled/Killed by socialist
+		OR = { #Bismark Exiled by player/events or Killed by socialist
 			custom_tooltip = {
 				text = bismarck_character_trigger
 				NOT = { 
@@ -93,14 +95,32 @@ je_bismarck_reform = {
 		}
 		custom_tooltip = { #Major Skill Issue
 			text = bis_soc_tens_fail_tt
-			var:socialist_tensions_bismarck_var >= 100
-		}	
+			scope:journal_entry ?= {
+				"scripted_bar_progress(socialist_tension_bismarck_bar)" >= 100
+			}
+		}
 	}
 
 	invalid = {
 	}
-	on_complete = {
-		trigger_event = { id = bismarck_events.3 popup = yes } #TODO
+	on_complete = { # 2 outcomes based on the second bar
+		trigger_if = {
+                limit = {
+                	scope:journal_entry = {
+						"scripted_bar_progress(reform_balance_bismarck_bar)" >= 50
+					}
+                }
+                trigger_event = { id = bismarck_events.2 popup = yes } #paternalistic win
+            }
+            trigger_if = {
+                limit = {
+                    scope:journal_entry = {
+						"scripted_bar_progress(reform_balance_bismarck_bar)" < 50
+					}
+                }
+                trigger_event = { id = bismarck_events.3 popup = yes } #socialist win
+            }
+
 		set_variable = bismarck_reforms_done
 	}
 
@@ -113,7 +133,7 @@ je_bismarck_reform = {
     }
 
 	on_fail = {
-		trigger_event = { id = bismarck_events.4 popup = yes } #TODO
+		trigger_event = { id = bismarck_events.3 popup = yes } #TODO
 		set_variable = bismarck_reforms_failed
 	}
 
@@ -126,7 +146,7 @@ je_bismarck_reform = {
     }
 
 	on_timeout = {
-		trigger_event = { id = bismarck_events.5 popup = yes } #TODO
+		trigger_event = { id = bismarck_events.4 popup = yes } #TODO
 		set_variable = bismarck_reforms_failed
 	}
 

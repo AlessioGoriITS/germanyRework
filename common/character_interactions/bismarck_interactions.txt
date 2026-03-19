@@ -1,0 +1,157 @@
+bismarck_grant_concessions = {
+	icon = "gfx/interface/character_panel/grant_command_not.dds"
+	clicksound = "event:/SFX/UI/Military/command_remove"
+
+	potential = {
+		has_variable = bismarck_variable_char
+		owner ?= scope:actor
+		has_journal_entry = je_bismarck_reform
+	}
+
+	cooldown = { months = 24 }
+
+	possible = {
+		OR = {
+			is_enacting_law = law_type:law_old_age_bismarck
+			is_enacting_law = law_type:law_regulatory_bodies_bismarck
+			is_enacting_law = law_type:law_public_health_insurance_bismarck
+		}
+	}
+
+	effect = {
+		add_enactment_modifier = {
+			name = germany_bismarck_concessions_char
+		}
+		currently_enacting_law = {
+			add_amendment = {
+				type = amendment_generic_sponsor_polstr_approval_increase
+				sponsor = ig:ig_trade_unions
+				cooldown = 120
+			}
+		}
+		custom_tooltip = {
+			text = bismarck_socialist_increase_20_tt
+			je:je_bismarck_reform = {
+				add_progress = { value = -20 name = reform_balance_bismarck_bar }
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 0
+	}
+}
+
+bismarck_force_reform_1 = { #would be pretty hard otherwise cuz it inherits the passing change of public health
+	icon = "gfx/interface/character_panel/grant_command_not.dds"
+	clicksound = "event:/SFX/UI/Military/command_remove"
+
+	potential = {
+		has_variable = bismarck_variable_char
+		owner ?= scope:actor
+		has_law = law_type:law_public_health_insurance
+		has_journal_entry = je_bismarck_reform
+	}
+
+	cooldown = { months = 30 }
+
+	possible = {
+		has_law = law_type:law_public_health_insurance
+	}
+
+	effect = {
+		cancel_enactment = yes
+		start_enactment = law_type:law_public_health_insurance_bismarck
+
+		add_enactment_modifier = {
+			name = germany_bismarck_force_char
+		}
+
+		custom_tooltip = {
+			text = bismarck_socialist_tension_increase_5_tt
+			je:je_bismarck_reform = {
+				add_progress = { value = 5 name = socialist_tension_bismarck_bar }
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 0
+	}
+}
+
+bismarck_force_reform_2 = { #same problem
+	icon = "gfx/interface/character_panel/grant_command_not.dds"
+	clicksound = "event:/SFX/UI/Military/command_remove"
+
+	potential = {
+		has_variable = bismarck_variable_char
+		owner ?= scope:actor
+		has_law = law_type:law_regulatory_bodies
+		has_journal_entry = je_bismarck_reform
+	}
+
+	cooldown = { months = 30 }
+
+	possible = {
+		has_law = law_type:law_regulatory_bodies
+	}
+
+	effect = {
+		cancel_enactment = yes
+		start_enactment = law_type:law_regulatory_bodies_bismarck
+
+		add_enactment_modifier = {
+			name = germany_bismarck_force_char
+		}
+
+		custom_tooltip = {
+			text = bismarck_socialist_tension_increase_5_tt
+			je:je_bismarck_reform = {
+				add_progress = { value = 5 name = socialist_tension_bismarck_bar }
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 0
+	}
+}
+
+bismarck_force_reform_3 = { #same problem
+	icon = "gfx/interface/character_panel/grant_command_not.dds"
+	clicksound = "event:/SFX/UI/Military/command_remove"
+
+	potential = {
+		has_variable = bismarck_variable_char
+		owner ?= scope:actor
+		has_law = law_type:law_old_age_pension
+		has_journal_entry = je_bismarck_reform
+	}
+
+	cooldown = { months = 30 }
+
+	possible = {
+		has_law = law_type:law_old_age_pension
+	}
+
+	effect = {
+		cancel_enactment = yes
+		start_enactment = law_type:law_old_age_bismarck
+
+		add_enactment_modifier = {
+			name = germany_bismarck_force_char
+		}
+
+		custom_tooltip = {
+			text = bismarck_socialist_tension_increase_5_tt
+			je:je_bismarck_reform = {
+				add_progress = { value = 5 name = socialist_tension_bismarck_bar }
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 0
+	}
+}

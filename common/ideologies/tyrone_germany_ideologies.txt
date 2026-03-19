@@ -199,3 +199,37 @@ ideology_bismarck_individualist_ig_industrialist = { #This changes Individualist
 		law_right_to_associate = strongly_disapprove
 	}
 }
+
+ideology_bismarck_socialist = { #This changes Republican Base Ideology, didnt add commie laws approval for balance
+	icon = "gfx/interface/icons/ideology_icons/socialist.dds"
+
+	lawgroup_governance_principles = {
+		law_council_republic = strongly_approve
+		law_parliamentary_republic = neutral
+		law_corporate_state = strongly_disapprove
+		law_presidential_republic = neutral
+		law_theocracy = strongly_disapprove
+		law_monarchy = neutral
+	}
+
+	lawgroup_distribution_of_power = {
+		law_universal_suffrage = strongly_approve
+		law_census_voting = strongly_approve
+		law_wealth_voting = strongly_disapprove
+		law_landed_voting = disapprove
+		law_single_party_state = neutral
+		law_technocracy = neutral
+		law_oligarchy = neutral
+		law_autocracy = disapprove
+		law_anarchy = approve
+	}
+
+	lawgroup_labour_associations = {
+		law_combination_acts = disapprove
+		law_guild_system = strongly_disapprove
+		law_anti_strike_laws = strongly_disapprove
+		law_corporatized_unions = disapprove
+		law_right_to_associate = approve
+		law_factory_councils = strongly_approve
+	}
+}

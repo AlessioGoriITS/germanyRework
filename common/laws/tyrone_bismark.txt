@@ -20,9 +20,11 @@ law_old_age_bismarck = { #Workers’ Security Fund
 	on_enact = { #bismarck reforms historically limited voting power of the socialist fraction of the pop, they do not like ts
 		custom_tooltip = {
 			text = 20_soc_tension_tt
-				change_variable = {
-				name = socialist_tensions_bismarck_var
-				add = 20
+			je:je_bismarck_reform = {
+				add_progress = {
+					value = 20
+					name = socialist_tension_bismarck_bar
+				}
 			}
 		}
 	}

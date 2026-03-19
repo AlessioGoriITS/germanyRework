@@ -1,2 +1,10 @@
 ﻿l_english:
- 
+socialist_tension_bismarck_bar:0 "Socialist tension"
+socialist_tension_bismarck_bar_desc:0 "The heat beneath Bismarck's statecraft agitation in the workshops, the press, and the Reichstag. Current measure: #v [JournalEntry.GetCurrentBarValue(ScriptedProgressBar.Self)|0]/100#!."
+socialist_tension_bismarck_bar_movements_tt:0 "Militant labour: socialist, communist, and anarchist movements lend their radicalism to the measure."
+
+reform_balance_bismarck_bar:0 "Reform Balance"
+reform_balance_bismarck_bar_desc:0 "Between the tribune and the throne, the scales of reform hang uncertain. Where they settle, the future of the Reich will follow."
+reform_balance_bismarck_bar_left_desc:0 "Socialist influence â€” agitators, unions, and the parliamentary left pressing for a broader share of the commonwealth."
+reform_balance_bismarck_bar_right_desc:0 "Paternalist influence â€” the statesman's hand, the Crown, and their allies claiming the right to dispense reform from above."
+reform_balance_bismarck_bar_concessions_tt:0 "Concessions granted in the reform struggle draw the balance toward socialist influence."

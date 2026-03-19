@@ -39,8 +39,5 @@ PRU_otto_von_bismarck = {
 
 	on_created = {
 		set_global_variable = bismarck_variable
-		owner = {
-			trigger_event = { id = german_unification.3 }
-		}
 	}
 }

@@ -1,0 +1,59 @@
+germany_rise_of_internationalist_movement = { #losing the entry
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	political_movement_pop_attraction_mult = 1
+}
+
+germany_rise_of_internationalist = { #losing the entry
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	country_enactment_success_chance_law_council_republic_add = 0.10
+	country_laborers_pol_str_mult = 0.10
+	country_engineers_pol_str_mult = 0.15
+}
+
+germany_bismarck_reform_1 = { #modifier 1, solidify the reforms. Paternalistic win
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	country_institution_size_change_speed_mult = 0.20
+	country_bureaucracy_mult = 0.15
+	building_group_bg_government_throughput_add = 0.10
+}
+
+germany_bismarck_reform_2 = { #modifier 2, suppress the socialists. Paternalistic win
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	state_pop_support_movement_socialist_mult = -0.5
+	state_pop_support_movement_communist_mult = -0.5
+	country_suppression_cost_mult = -0.5
+	country_authority_mult = 0.10
+}
+
+germany_bismarck_reform_3 = { #modifier 3, continue the reforms. Socialist win, comes with a communist intell/trade union/rural folk agitator
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	country_legitimacy_base_add = 10
+	country_law_enactment_time_mult = -0.1
+	country_law_enactment_max_setbacks_add = 1
+}
+
+germany_bismarck_reform_4 = { #modifier 1, higher wages. Socialist win, comes with loyalists and a communist intell/trade union/rural folk IG leader (change ideology)
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	state_pop_support_movement_socialist_mult = 0.5
+	state_pop_support_movement_communist_mult = 0.5
+	building_minimum_wage_mult = 0.1
+	state_birth_rate_mult = 0.01
+}
+
+germany_bismarck_concessions_char = { #bismarck interaction
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	country_law_enactment_time_mult = -0.1
+	country_law_enactment_stall_mult = -0.4
+}
+
+germany_bismarck_force_char = { #bismarck interaction
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	country_law_enactment_time_mult = 0.2
+	country_law_enactment_success_add = 0.1
+}
+
+ig_bonus_bismarck = { #lil cosmetic IG bonus
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
+	interest_group_approval_add = 5
+	interest_group_pol_str_mult = 0.20
+}
