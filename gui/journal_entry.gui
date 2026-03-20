@@ -110,6 +110,7 @@ types journal_entry_panel_types {
 				}
 
 				### Journal Entry Characters ###
+				bismarck_reform_gui = {}
 				italy_je_characters = {}
 
 				### Italy: Risorgimento Stage – quote + Mazzini portrait ###

@@ -1,46 +1,61 @@
 @panel_width_minus_20 = 520
+@panel_width_plus_20 = 560
 
-types germany_entries_types {
-	type bismarck_character = flowcontainer {
+types journal_entry_panel_types {
+	type bismarck_reform_gui = flowcontainer {
 		direction = vertical
-		parentanchor = hcenter
-		visible = "[And(EqualTo_string(JournalEntry.GetName, Localize('je_bismarck_reform')), DataModelHasItems(JournalEntry.MakeScope.GetList('germany_bismarck_gui_characters')))]"
+		parentanchor = center
+		visible = "[EqualTo_string(JournalEntry.GetName, Localize('je_bismarck_reform'))]"
 
-		datamodel = "[DataModelFirst(JournalEntry.MakeScope.GetList('germany_bismarck_gui_characters'), '(int32)1')]"
+		# Layout: left = Bismarck portrait, right = empty placeholder for future containers.
+		flowcontainer = {
+			direction = horizontal
+			spacing = 0
+			parentanchor = hcenter
 
-		item = {
+			
+			
 			widget = {
-				size = { 520 230 }
-				parentanchor = hcenter
-
-				tooltipwidget = {
-					FancyTooltip_Character = {}
+				size = { 520 400 }
+				container = {
+					datacontext = "[JournalEntry.GetCountry.GetInterestGroupOfType('ig_landowners').GetLeader]"
+					parentanchor = center
+					flowcontainer = {
+						background = {
+							using = entry_bg
+						}
+						direction = vertical
+						character_portrait_large_torso = {
+							position = { 0 0 }
+							parentanchor = hcenter
+							blockoverride "highlight" {}
+							blockoverride "commander_order_icon" {}
+						}
+						default_header_clean_faded = {
+							size = { 250 40 }
+							position = { 0 258 }
+							blockoverride "text" {}
+							parentanchor = hcenter
+							margin = { 10 10 }
+							textbox = {
+								text = "Otto von Bismarck"
+								parentanchor = vcenter|hcenter
+								position = { 0 -3 }
+								autoresize = yes
+								max_width = 256
+								using = fontsize_large
+							}
+							
+						}
+					}
 				}
-
-				datacontext = "[Scope.GetCharacter]"
-
-				background = {
-					using = entry_bg_fancy_dark
-					alpha = 0.55
-				}
-
-				character_portrait_large_torso = {
-					position = { 0 0 }
-					parentanchor = hcenter
-					blockoverride "show_hat" {}
-					blockoverride "tooltip" {}
-					blockoverride "portrait_icons" {}
-					blockoverride "portrait_button" {}
-				}
-
-				textbox = {
-					text = "[Character.GetFullName]"
-					parentanchor = hcenter|bottom
-					position = { 0 10 }
-					align = hcenter|nobaseline
-					using = fontsize_large
-				}
+				
 			}
+			
+
+
 		}
-	}
+
+	
+}
 }

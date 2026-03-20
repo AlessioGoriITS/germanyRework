@@ -11,30 +11,36 @@ bismarck_grant_concessions = {
 	cooldown = { months = 24 }
 
 	possible = {
-		OR = {
-			is_enacting_law = law_type:law_old_age_bismarck
-			is_enacting_law = law_type:law_regulatory_bodies_bismarck
-			is_enacting_law = law_type:law_public_health_insurance_bismarck
+		owner = {
+			OR = {
+				is_enacting_law = law_type:law_old_age_bismarck
+				is_enacting_law = law_type:law_regulatory_bodies_bismarck
+				is_enacting_law = law_type:law_public_health_insurance_bismarck
+			} 
 		}
 	}
 
 	effect = {
-		add_enactment_modifier = {
+
+		owner = { 
+			add_enactment_modifier = {
 			name = germany_bismarck_concessions_char
-		}
-		currently_enacting_law = {
-			add_amendment = {
-				type = amendment_generic_sponsor_polstr_approval_increase
-				sponsor = ig:ig_trade_unions
-				cooldown = 120
+			}
+			currently_enacting_law = {
+				add_amendment = {
+					type = amendment_generic_sponsor_polstr_approval_increase
+					sponsor = ig:ig_trade_unions
+					cooldown = 120
+				}
+			}
+			custom_tooltip = {
+				text = bismarck_socialist_increase_20_tt
+				je:je_bismarck_reform = {
+					add_progress = { value = -20 name = reform_balance_bismarck_bar }
+				}
 			}
 		}
-		custom_tooltip = {
-			text = bismarck_socialist_increase_20_tt
-			je:je_bismarck_reform = {
-				add_progress = { value = -20 name = reform_balance_bismarck_bar }
-			}
-		}
+		
 	}
 
 	ai_chance = {
@@ -56,23 +62,26 @@ bismarck_force_reform_1 = { #would be pretty hard otherwise cuz it inherits the 
 	cooldown = { months = 30 }
 
 	possible = {
-		has_law = law_type:law_public_health_insurance
+		owner = { has_law = law_type:law_public_health_insurance }
 	}
 
 	effect = {
-		cancel_enactment = yes
-		start_enactment = law_type:law_public_health_insurance_bismarck
+		owner = { 
+			cancel_enactment = yes
+				start_enactment = law_type:law_public_health_insurance_bismarck
 
-		add_enactment_modifier = {
-			name = germany_bismarck_force_char
-		}
+				add_enactment_modifier = {
+					name = germany_bismarck_force_char
+				}
 
-		custom_tooltip = {
-			text = bismarck_socialist_tension_increase_5_tt
-			je:je_bismarck_reform = {
-				add_progress = { value = 5 name = socialist_tension_bismarck_bar }
-			}
-		}
+				custom_tooltip = {
+					text = bismarck_socialist_tension_increase_5_tt
+					je:je_bismarck_reform = {
+						add_progress = { value = 5 name = socialist_tension_bismarck_bar }
+					}
+				}
+		} 
+		
 	}
 
 	ai_chance = {
@@ -94,23 +103,26 @@ bismarck_force_reform_2 = { #same problem
 	cooldown = { months = 30 }
 
 	possible = {
-		has_law = law_type:law_regulatory_bodies
+		owner = { has_law = law_type:law_regulatory_bodies }
 	}
 
 	effect = {
-		cancel_enactment = yes
-		start_enactment = law_type:law_regulatory_bodies_bismarck
+		owner = { 
+			cancel_enactment = yes
+			start_enactment = law_type:law_regulatory_bodies_bismarck
 
-		add_enactment_modifier = {
-			name = germany_bismarck_force_char
-		}
+			add_enactment_modifier = {
+				name = germany_bismarck_force_char
+			}
 
-		custom_tooltip = {
-			text = bismarck_socialist_tension_increase_5_tt
-			je:je_bismarck_reform = {
-				add_progress = { value = 5 name = socialist_tension_bismarck_bar }
+			custom_tooltip = {
+				text = bismarck_socialist_tension_increase_5_tt
+				je:je_bismarck_reform = {
+					add_progress = { value = 5 name = socialist_tension_bismarck_bar }
+				}
 			}
 		}
+		
 	}
 
 	ai_chance = {
@@ -132,23 +144,26 @@ bismarck_force_reform_3 = { #same problem
 	cooldown = { months = 30 }
 
 	possible = {
-		has_law = law_type:law_old_age_pension
+		owner = { has_law = law_type:law_old_age_pension }
 	}
 
 	effect = {
-		cancel_enactment = yes
-		start_enactment = law_type:law_old_age_bismarck
+		owner = { 
+			cancel_enactment = yes
+				start_enactment = law_type:law_old_age_bismarck
 
-		add_enactment_modifier = {
-			name = germany_bismarck_force_char
-		}
+				add_enactment_modifier = {
+					name = germany_bismarck_force_char
+				}
 
-		custom_tooltip = {
-			text = bismarck_socialist_tension_increase_5_tt
-			je:je_bismarck_reform = {
-				add_progress = { value = 5 name = socialist_tension_bismarck_bar }
-			}
+				custom_tooltip = {
+					text = bismarck_socialist_tension_increase_5_tt
+					je:je_bismarck_reform = {
+						add_progress = { value = 5 name = socialist_tension_bismarck_bar }
+					}
+				}
 		}
+		
 	}
 
 	ai_chance = {

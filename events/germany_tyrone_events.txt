@@ -31,8 +31,13 @@ bismarckevents.1 = {
 			on_created = {
 				set_variable = bismarck_variable_char
 				set_global_variable = bismarck_variable
-				save_scope_as = bismarck_scope
 			}
+		}
+		random_scope_character = {
+			limit = {
+				has_variable = bismarck_variable_char
+			}
+			save_scope_as = bismarck_scope
 		}
 		ig:ig_landowners ?= {
 			save_scope_as = junkers
@@ -42,11 +47,6 @@ bismarckevents.1 = {
 	option = {
 		name = bismarckevents.1.a
 		default_option = yes
-		show_as_tooltip = {
-			create_character = {
-				template = PRU_otto_von_bismarck
-			}
-		}
 		scope:bismarck_scope = {
 			add_modifier = {
 				name = bismarck_popular
@@ -101,12 +101,12 @@ bismarckevents.2 = { #complete entry on paternalistic side
 	flavor = bismarckevents.2.f
 
 	event_image = {
-		video = "africa_soldiers_breaking_protest"
+		video = "unspecific_world_fair"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 
-	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	icon = "gfx/interface/icons/generic_icons/maneuvers.dds"
 
 	duration = 3
 
@@ -114,6 +114,12 @@ bismarckevents.2 = { #complete entry on paternalistic side
 	}
 
 	immediate = {
+		random_scope_character = {
+			limit = {
+				has_variable = bismarck_variable_char
+			}
+			save_scope_as = bismarck_scope
+		}
 		ig:ig_landowners ?= {
 			save_scope_as = junkers
 			remove_ideology = ideology_junker_paternalistic
@@ -134,15 +140,16 @@ bismarckevents.2 = { #complete entry on paternalistic side
 		scope:junkers = {
 			add_modifier = { 
 				name = ig_bonus_bismarck
-				months = 60
+				months = 61
 			}
 			add_ideology = ideology_bismarck_paternalistic_ig_landowners
 			add_ideology = ideology_bismarck_hierarchic_ig_landowners
+			set_ig_trait = ig_trait:ig_trait_junkerdom_bismarck
 		}
 		scope:industrialists = {
 			add_modifier = { 
 				name = ig_bonus_bismarck
-				months = 60
+				months = 61
 			}
 			add_ideology = ideology_bismarck_individualist_ig_industrialist
 		}
@@ -155,6 +162,23 @@ bismarckevents.2 = { #complete entry on paternalistic side
 			name = germany_bismarck_reform_2
 		}
 		add_ideology = ideology_bismarck_individualist_ig_industrialist
+		scope:junkers = {
+			add_modifier = { 
+				name = ig_bonus_bismarck
+				months = 61
+			}
+			add_ideology = ideology_bismarck_paternalistic_ig_landowners
+			add_ideology = ideology_bismarck_hierarchic_ig_landowners
+			set_ig_trait = ig_trait:ig_trait_junkerdom_bismarck
+		}
+		scope:industrialists = {
+			add_modifier = { 
+				name = ig_bonus_bismarck
+				months = 61
+			}
+			add_ideology = ideology_bismarck_individualist_ig_industrialist
+		}
+
 	}
 }
 
@@ -172,7 +196,7 @@ bismarckevents.3 = { #complete entry on socialist side
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 
-	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	icon = "gfx/interface/icons/generic_icons/maneuvers.dds"
 
 	duration = 3
 
@@ -180,6 +204,12 @@ bismarckevents.3 = { #complete entry on socialist side
 	}
 
 	immediate = {
+		random_scope_character = {
+			limit = {
+				has_variable = bismarck_variable_char
+			}
+			save_scope_as = bismarck_scope
+		}
 		ig:ig_landowners ?= {
 			save_scope_as = junkers
 			remove_ideology = ideology_junker_paternalistic
@@ -280,7 +310,7 @@ bismarckevents.4 = { #fail entry
 	flavor = bismarckevents.4.f
 
 	event_image = {
-		video = "africa_soldiers_breaking_protest"
+		video = "votp_agitator_speaking"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
@@ -320,16 +350,16 @@ bismarckevents.4 = { #fail entry
 		add_modifier = { 
 			name = germany_rise_of_internationalist
 		}
-		scope:commies = {
+		ig:commies = {
 			add_modifier = { 
 				name = ig_debuff_bismarck
-				months = 60
+				months = 61
 			}
 		}
 		scope:intelligentsia = {
 			add_modifier = { 
 				name = ig_debuff_bismarck
-				months = 60
+				months = 61
 			}
 			add_ideology = ideology_bismarck_socialist
 			set_ig_trait = ig_trait:ig_trait_intelligentsia_veryhappy_bismarck_fail

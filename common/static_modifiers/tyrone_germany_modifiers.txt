@@ -58,7 +58,7 @@ ig_bonus_bismarck = { #lil cosmetic IG bonus
 	interest_group_pol_str_mult = 0.20
 }
 
-ig_bonus_bismarck = { #lil cosmetic IG debuff
+ig_debuff_bismarck = { #lil cosmetic IG debuff
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_fist_negative.dds
 	interest_group_approval_add = -10
 	interest_group_pol_str_mult = 0.25
