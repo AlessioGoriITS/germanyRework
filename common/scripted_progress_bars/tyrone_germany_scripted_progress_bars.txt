@@ -35,6 +35,7 @@ socialist_tension_bismarck_bar = {
 					}
 					add = {
 						value = this.political_movement_radicalism
+						multiply = 1.5
 					}
 				}
 			}
@@ -60,9 +61,8 @@ socialist_tension_bismarck_bar = {
 							is_political_movement_type = movement_religious_majority
 						}
 					}
-					subtract = {
+					add = {
 						value = this.political_movement_support
-						multiply = 5
 					}
 				}
 			}
@@ -70,13 +70,10 @@ socialist_tension_bismarck_bar = {
 
 		if = {
 			limit = {
-					any_scope_character = {
-						OR = {
-							has_role = agitator
-							has_role = politician
-						}
-						has_socialist_ideology = yes
-					} 
+				any_scope_character = {
+					has_role = agitator
+					has_socialist_ideology = yes
+				} 
 			}
 			add = {
 				desc = "socialist_tension_bismarck_bar_character2_tt"
@@ -94,7 +91,7 @@ socialist_tension_bismarck_bar = {
 				}
 			}
 			subtract = {
-				desc = "socialist_tension_bismarck_bar_character2_tt"
+				desc = "socialist_tension_bismarck_bar_character1_tt"
 				value = 0.25
 			}
 		}
@@ -112,7 +109,7 @@ socialist_tension_bismarck_bar = {
 			}
 			subtract = {
 				desc = "socialist_tension_bismarck_bar_laws_tt"
-				value = 0.1
+				value = 0.25
 			}
 		}
 
@@ -127,7 +124,38 @@ socialist_tension_bismarck_bar = {
 			}
 			add = {
 				desc = "socialist_tension_bismarck_bar_laws2_tt"
-				value = 0.1
+				value = 0.25
+			}
+		}
+
+		if = {
+			limit = {
+				OR = {
+					has_law = law_type:law_old_age_pension
+					has_law = law_type:law_wage_subsidies
+					has_law = law_type:law_worker_protections
+					has_law = law_type:law_regulatory_bodies
+					has_law = law_type:law_right_to_associate
+					has_law = law_type:law_public_health_insurance
+				}
+			}
+			subtract = {
+				desc = "reform_balance_bismarck_bar_laws_tt"
+				value = 0.25
+			}
+		}
+
+		if = {
+			limit = {
+				OR = {
+					has_law = law_type:law_old_age_bismarck
+					has_law = law_type:law_regulatory_bodies_bismarck
+					has_law = law_type:law_public_health_insurance_bismarck
+				}
+			}
+			add = {
+				desc = "reform_balance_bismarck_bar_laws2_tt"
+				value = 0.25
 			}
 		}
 	}
@@ -140,9 +168,7 @@ socialist_tension_bismarck_bar = {
 reform_balance_bismarck_bar = {
 	name = "reform_balance_bismarck_bar"
 	desc = "reform_balance_bismarck_bar_desc"
-
-	left_desc = "reform_balance_bismarck_bar_left_desc"
-	right_desc = "reform_balance_bismarck_bar_right_desc"
+	second_desc = "reform_balance_bismarck_bar_right_desc"
 
 	double_sided_bad = yes
 

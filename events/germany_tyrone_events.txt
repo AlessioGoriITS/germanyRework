@@ -106,7 +106,7 @@ bismarckevents.2 = { #complete entry on paternalistic side
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 
-	icon = "gfx/interface/icons/generic_icons/maneuvers.dds"
+	icon = "gfx/interface/icons/invention_icons/corporate_management.dds"
 
 	duration = 3
 
@@ -196,7 +196,7 @@ bismarckevents.3 = { #complete entry on socialist side
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 
-	icon = "gfx/interface/icons/generic_icons/maneuvers.dds"
+	icon = "gfx/interface/icons/invention_icons/labor_movement.dds"
 
 	duration = 3
 
@@ -249,6 +249,9 @@ bismarckevents.3 = { #complete entry on socialist side
 			set_ig_trait = ig_trait:ig_trait_intelligentsia_veryhappy_bismarck_win
 			set_ig_trait = ig_trait:ig_trait_intelligentsia_unhappy_bismarck
 		}
+		ig:ig_intelligentsia ?= {
+			set_interest_group_name = ig_internationalist_1
+		}
 
 		custom_tooltip = {
 			text = bismarck_agitator1_tt
@@ -285,6 +288,9 @@ bismarckevents.3 = { #complete entry on socialist side
 			set_ig_trait = ig_trait:ig_trait_intelligentsia_veryhappy_bismarck_win
 			set_ig_trait = ig_trait:ig_trait_intelligentsia_unhappy_bismarck
 		}
+		ig:ig_intelligentsia ?= {
+			set_interest_group_name = ig_internationalist_1
+		}
 
 		custom_tooltip = {
 			text = bismarck_agitator2_tt
@@ -315,7 +321,7 @@ bismarckevents.4 = { #fail entry
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 
-	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	icon = "gfx/interface/icons/invention_icons/socialism.dds"
 
 	duration = 3
 
@@ -361,9 +367,12 @@ bismarckevents.4 = { #fail entry
 				name = ig_debuff_bismarck
 				months = 61
 			}
-			add_ideology = ideology_bismarck_socialist
+			add_ideology = ideology_bismarck_vanguardist
 			set_ig_trait = ig_trait:ig_trait_intelligentsia_veryhappy_bismarck_fail
 			set_ig_trait = ig_trait:ig_trait_intelligentsia_unhappy_bismarck
+		}
+		ig:ig_intelligentsia ?= {
+			set_interest_group_name = ig_internationalist_2
 		}
 
 		custom_tooltip = {
@@ -414,7 +423,7 @@ bismarckevents.5 = { #timeout entry, softer rise of the commies
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 
-	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	icon = "gfx/interface/icons/invention_icons/socialism.dds"
 
 	duration = 3
 
@@ -503,7 +512,7 @@ bismarckevents.6 = { #on immediate of the entry, informative
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 
-	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	icon = "gfx/interface/icons/invention_icons/philosophical_pragmatism.dds"
 
 	duration = 3
 
@@ -535,7 +544,7 @@ bismarckevents.7 = { #Rhineland general strikes strikes
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 
-	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	icon = "gfx/interface/icons/alert_icons/radicalized.dds"
 
 	duration = 3
 
@@ -615,7 +624,7 @@ bismarckevents.8 = { #Silesian Weavers’ Uprising (caused by free trade irl, ad
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 
-	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	icon = "gfx/interface/icons/alert_icons/goods_shortage.dds"
 
 	duration = 3
 
@@ -715,7 +724,7 @@ bismarckevents.9 = { #Call for Right to Associate
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 
-	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
 
 	duration = 3
 
@@ -772,7 +781,7 @@ bismarckevents.10 = { #Commies mad about Bismarck reform
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 
-	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	icon = "gfx/interface/icons/event_icons/event_fire.dds"
 
 	duration = 3
 
@@ -837,7 +846,7 @@ bismarckevents.11 = { #Bismarck assassination
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 
-	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
 
 	duration = 3
 

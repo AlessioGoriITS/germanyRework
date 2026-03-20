@@ -16,6 +16,12 @@ bismarck_grant_concessions = {
 				is_enacting_law = law_type:law_old_age_bismarck
 				is_enacting_law = law_type:law_regulatory_bodies_bismarck
 				is_enacting_law = law_type:law_public_health_insurance_bismarck
+				is_enacting_law = law_type:law_old_age_pension
+				is_enacting_law = law_type:law_wage_subsidies
+				is_enacting_law = law_type:law_worker_protections
+				is_enacting_law = law_type:law_regulatory_bodies
+				is_enacting_law = law_type:law_right_to_associate
+				is_enacting_law = law_type:law_public_health_insurance
 			} 
 		}
 	}
@@ -24,7 +30,7 @@ bismarck_grant_concessions = {
 
 		owner = { 
 			add_enactment_modifier = {
-			name = germany_bismarck_concessions_char
+				name = germany_bismarck_concessions_char
 			}
 			currently_enacting_law = {
 				add_amendment = {
@@ -37,6 +43,10 @@ bismarck_grant_concessions = {
 				text = bismarck_socialist_increase_20_tt
 				je:je_bismarck_reform = {
 					add_progress = { value = -20 name = reform_balance_bismarck_bar }
+				}
+				change_variable = {
+					name = bismarck_concessions_var
+					add = 1
 				}
 			}
 		}

@@ -200,7 +200,7 @@ ideology_bismarck_individualist_ig_industrialist = { #This changes Individualist
 	}
 }
 
-ideology_bismarck_socialist = { #This changes Republican Base Ideology, didnt add commie laws approval for balance
+ideology_bismarck_socialist = { #This changes Republican Base Ideology, more moderate
 	icon = "gfx/interface/icons/ideology_icons/socialist.dds"
 
 	lawgroup_governance_principles = {
@@ -233,3 +233,58 @@ ideology_bismarck_socialist = { #This changes Republican Base Ideology, didnt ad
 		law_factory_councils = strongly_approve
 	}
 }
+
+ideology_bismarck_vanguardist = { #This changes Republican Base Ideology, very mad ppl
+	icon = "gfx/interface/icons/ideology_icons/vanguardist.dds"
+
+	lawgroup_governance_principles = {
+		law_council_republic = strongly_approve
+		law_parliamentary_republic = neutral
+		law_corporate_state = strongly_disapprove
+		law_presidential_republic = neutral
+		law_theocracy = strongly_disapprove
+		law_monarchy = strongly_disapprove
+	}
+
+	lawgroup_distribution_of_power = {
+		law_universal_suffrage = disapprove
+		law_census_voting = neutral
+		law_wealth_voting = strongly_disapprove
+		law_landed_voting = disapprove
+		law_single_party_state = strongly_approve
+		law_technocracy = approve
+		law_oligarchy = strongly_approve
+		law_autocracy = strongly_approve
+		law_anarchy = approve
+	}
+
+	lawgroup_labour_associations = {
+		law_combination_acts = disapprove
+		law_guild_system = strongly_disapprove
+		law_anti_strike_laws = strongly_disapprove
+		law_corporatized_unions = disapprove
+		law_right_to_associate = approve
+		law_factory_councils = strongly_approve
+	}
+
+	lawgroup_economic_system = {
+		law_command_economy = approve
+		law_cooperative_ownership = strongly_approve
+		law_interventionism = approve
+		law_state_capitalism = approve
+		law_agrarianism = disapprove
+		law_traditionalism = disapprove
+		law_laissez_faire = strongly_disapprove
+		law_industry_banned = strongly_disapprove
+		law_extraction_economy = strongly_disapprove
+	}
+
+	lawgroup_land_reform = {
+		law_serfdom = strongly_disapprove
+		law_commercialized_agriculture = disapprove
+		law_tenant_farmers = disapprove
+		law_homesteading = neutral
+		law_collectivized_agriculture = approve
+	}
+}
+

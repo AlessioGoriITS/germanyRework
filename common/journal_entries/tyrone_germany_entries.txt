@@ -52,6 +52,15 @@ je_bismarck_reform = {
 		ig:ig_landowners ?= {
 			save_scope_as = landowners_ig
 		}
+		ig:ig_industrialists ?= {
+			save_scope_as = industrialists_ig
+		}
+		ig:ig_intelligentsia ?= {
+			save_scope_as = intelligentsia_ig
+		}
+		ig:ig_trade_unions ?= {
+			save_scope_as = trade_unions_ig
+		}
 		trigger_event = { id = bismarck_events.2 popup = yes } 
 			random_scope_character = {
 				limit = {

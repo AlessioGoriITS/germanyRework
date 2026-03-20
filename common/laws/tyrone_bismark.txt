@@ -19,10 +19,10 @@ law_old_age_bismarck = { #Workers’ Security Fund
 
 	on_enact = { #bismarck reforms historically limited voting power of the socialist fraction of the pop, they do not like ts
 		custom_tooltip = {
-			text = 20_soc_tension_tt
+			text = 10_soc_tension_tt
 			je:je_bismarck_reform = {
 				add_progress = {
-					value = 20
+					value = 10
 					name = socialist_tension_bismarck_bar
 				}
 			}
@@ -39,7 +39,6 @@ law_old_age_bismarck = { #Workers’ Security Fund
 		state_food_security_add = 0.01
 		state_working_adult_ratio_add = 0.01 #this is just a lil bonus, not historical at all
 		building_group_bg_manufacturing_mortality_mult = -0.075 #Bismarck reforms targeted industrial workers and in limited ways even mine workers
-		building_group_bg_extraction_mortality_mult = -0.025
 		building_group_bg_manufacturing_standard_of_living_add = 0.5
 	}
 
@@ -65,17 +64,29 @@ law_regulatory_bodies_bismarck = {
 	}
 
 	modifier = {
-		country_institution_workplace_safety_max_investment_add = 2
+		country_institution_workplace_safety_max_investment_add = 3 #lil extra here
 		state_pop_support_movement_labor_mult = 0.25 #historically Bismarck supported such law to limit the power of the Communist in politics but ended up boosting the SPD (social dems)
 		state_pop_support_movement_communist_mult = -0.20
 		state_pop_support_movement_socialist_mult = -0.20
 	}
 
+	on_enact = { #bismarck reforms historically limited voting power of the socialist fraction of the pop, they do not like ts
+		custom_tooltip = {
+			text = 10_soc_tension_tt
+			je:je_bismarck_reform = {
+				add_progress = {
+					value = 10
+					name = socialist_tension_bismarck_bar
+				}
+			}
+		}
+	}
+
 	institution = institution_workplace_safety
 	
 	institution_modifier = {
-		building_working_conditions_mult = -0.2
 		country_authority_add = 50
+		building_group_bg_mining_mortality_mult = -0.020
 	}		
 
 	ai_will_do = {
@@ -99,9 +110,21 @@ law_public_health_insurance_bismarck = {
 		pharmaceuticals
 	}
 
+	on_enact = { #bismarck reforms historically limited voting power of the socialist fraction of the pop, they do not like ts
+		custom_tooltip = {
+			text = 10_soc_tension_tt
+			je:je_bismarck_reform = {
+				add_progress = {
+					value = 10
+					name = socialist_tension_bismarck_bar
+				}
+			}
+		}
+	}
+
 	institution = institution_health_system
 	institution_modifier = {
-		state_mortality_mult = -0.07 #Huge -0.02 here, debuff on the inv pool tho
+		state_mortality_mult = -0.1 #Huge -0.05 here, debuff on the inv pool and dividends tho
 		state_pollution_reduction_health_mult = -0.15
 		state_standard_of_living_add = 0.5
 		#Bismarck used funds from the factory owners to pay healthcare to the workers
