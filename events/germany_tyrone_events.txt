@@ -316,7 +316,7 @@ bismarckevents.4 = { #fail entry
 	flavor = bismarckevents.4.f
 
 	event_image = {
-		video = "votp_agitator_speaking"
+		video = "europenorthamerica_political_extremism"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
@@ -418,7 +418,7 @@ bismarckevents.5 = { #timeout entry, softer rise of the commies
 	flavor = bismarckevents.5.f
 
 	event_image = {
-		video = "africa_soldiers_breaking_protest"
+		video = "europenorthamerica_political_extremism"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
@@ -539,7 +539,7 @@ bismarckevents.7 = { #Rhineland general strikes strikes
 	cooldown = { days = stupidly_long_modifier_time }
 
 	event_image = {
-		video = "africa_soldiers_breaking_protest"
+		video = "europenorthamerica_political_extremism"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
@@ -619,7 +619,7 @@ bismarckevents.8 = { #Silesian Weavers’ Uprising (caused by free trade irl, ad
 	cooldown = { days = stupidly_long_modifier_time }
 
 	event_image = {
-		video = "africa_soldiers_breaking_protest"
+		video = "asia_factory_accident"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
@@ -719,7 +719,7 @@ bismarckevents.9 = { #Call for Right to Associate
 	cooldown = { days = stupidly_long_modifier_time }
 
 	event_image = {
-		video = "africa_soldiers_breaking_protest"
+		video = "unspecific_politicians_arguing"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
@@ -841,7 +841,7 @@ bismarckevents.11 = { #Bismarck assassination
 	cooldown = { days = stupidly_long_modifier_time }
 
 	event_image = {
-		video = "africa_soldiers_breaking_protest"
+		video = "public_assasination_test"
 	}
 
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
